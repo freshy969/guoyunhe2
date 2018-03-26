@@ -5,7 +5,7 @@
  * @link https://codex.wordpress.org/Custom_Headers
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage Guo_Yunhe_2
  * @since 1.0
  */
 

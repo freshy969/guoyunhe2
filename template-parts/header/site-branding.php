@@ -3,7 +3,7 @@
  * Displays header site branding
  *
  * @package WordPress
- * @subpackage Twenty_Seventeen
+ * @subpackage Guo_Yunhe_2
  * @since 1.0
  * @version 1.0
  */

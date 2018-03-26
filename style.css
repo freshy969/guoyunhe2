@@ -17,6 +17,8 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /*
 --------------------------------------------------------------------------------
 Normalize.css
+Author: Nicolas Gallagher and Jonathan Neal
+License: MIT
 --------------------------------------------------------------------------------
 */
 
@@ -178,7 +180,7 @@ body {
 
 /*
 --------------------------------------------------------------------------------
-Headings
+Heading
 --------------------------------------------------------------------------------
 */
 
@@ -192,6 +194,15 @@ h6 {
 	font-weight: 700;
 }
 
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+	margin-top: 0;
+}
+
 /*
 --------------------------------------------------------------------------------
 Link
@@ -201,6 +212,17 @@ Link
 a {
 	color: #000;
 	text-decoration-color: #0ff;
+}
+
+/*
+--------------------------------------------------------------------------------
+Image
+--------------------------------------------------------------------------------
+*/
+
+img {
+	max-width: 100%;
+	height: auto;
 }
 
 /*
@@ -249,4 +271,135 @@ input[type="button"]:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover {
 	opacity: 0.7;
+}
+
+/*
+--------------------------------------------------------------------------------
+Accessibility from Twenty Seventeen
+Author: WordPress team
+License: GPLv2 or later
+--------------------------------------------------------------------------------
+*/
+
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000; /* Above WP toolbar. */
+}
+
+/*
+--------------------------------------------------------------------------------
+Icon from Twenty Seventeen
+--------------------------------------------------------------------------------
+*/
+
+.icon {
+	display: inline-block;
+	fill: currentColor;
+	height: 1em;
+	position: relative; /* Align more nicely with capital letters */
+	top: -0.0625em;
+	vertical-align: middle;
+	width: 1em;
+}
+
+/*
+--------------------------------------------------------------------------------
+Custom Header
+--------------------------------------------------------------------------------
+*/
+
+.custom-header {
+	position: relative;
+}
+
+.wp-custom-header,
+.wp-custom-header img {
+	height: 25vw;
+}
+
+.home .wp-custom-header,
+.home .wp-custom-header img {
+	height: calc(100vh - 60px);
+}
+
+.wp-custom-header {
+	position: relative;
+}
+
+.wp-custom-header img {
+	position: fixed;
+	object-fit: cover;
+	object-position: center;
+	z-index: -1;
+}
+
+.site-branding {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 1rem;
+}
+
+p.site-title {
+	font-family: "Playfair Display", "Noto Serif SC", serif;
+	font-weight: 700;
+}
+
+.site-title a {
+	text-decoration: none;
+}
+
+/* Scrolldown button */
+
+.site-header .menu-scroll-down {
+	display: block;
+	padding: 1em;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.site-header .menu-scroll-down .icon {
+	font-size: 1.5rem;
+	-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+	-ms-transform: rotate(90deg); /* IE 9 */
+	transform: rotate(90deg);
+}
+
+/*
+--------------------------------------------------------------------------------
+Content
+--------------------------------------------------------------------------------
+*/
+
+.site-content-contain {
+	background: #fff;
 }
