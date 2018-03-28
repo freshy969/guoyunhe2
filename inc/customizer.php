@@ -1,6 +1,6 @@
 <?php
 /**
- * Twenty Seventeen: Customizer
+ * Guo Yunhe 2: Customizer
  *
  * @package WordPress
  * @subpackage Guo_Yunhe_2
@@ -86,9 +86,9 @@ function guoyunhe2_customize_register( $wp_customize ) {
 	) );
 
 	/**
-	 * Filter number of front page sections in Twenty Seventeen.
+	 * Filter number of front page sections in Guo Yunhe 2.
 	 *
-	 * @since Twenty Seventeen 1.0
+	 * @since Guo Yunhe 2 1.0
 	 *
 	 * @param int $num_sections Number of front page sections.
 	 */
@@ -157,7 +157,7 @@ function guoyunhe2_sanitize_colorscheme( $input ) {
 /**
  * Render the site title for the selective refresh partial.
  *
- * @since Twenty Seventeen 1.0
+ * @since Guo Yunhe 2 1.0
  * @see guoyunhe2_customize_register()
  *
  * @return void
@@ -169,7 +169,7 @@ function guoyunhe2_customize_partial_blogname() {
 /**
  * Render the site tagline for the selective refresh partial.
  *
- * @since Twenty Seventeen 1.0
+ * @since Guo Yunhe 2 1.0
  * @see guoyunhe2_customize_register()
  *
  * @return void

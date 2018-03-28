@@ -1,8 +1,7 @@
 /*
-Theme Name: Twenty Seventeen
+Theme Name: Guo Yunhe 2
 Description: Used to style the TinyMCE editor.
 */
-
 
 /**
  * Table of Contents:
@@ -305,7 +304,8 @@ a {
 	-webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
 	transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
 	transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
-	transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+	transition: color 80ms ease-in, box-shadow 130ms ease-in-out,
+		-webkit-box-shadow 130ms ease-in-out;
 }
 
 a:focus {
@@ -333,7 +333,7 @@ a img {
 
 img {
 	height: auto; /* Make sure images are scaled correctly. */
-	width: inherit;  /* Make images fill their parent's space. Solves IE8. */
+	width: inherit; /* Make images fill their parent's space. Solves IE8. */
 	max-width: 100%; /* Adhere to container width. */
 }
 
@@ -461,8 +461,10 @@ object {
 
 .wp-playlist-light .wp-playlist-item {
 	border-bottom: 1px dotted #eee;
-	-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
-	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+	-webkit-transition: background-color 0.2s ease-in-out,
+		border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+		color 0.3s ease-in-out;
 }
 
 .wp-playlist-light .wp-playlist-item:hover,
@@ -507,8 +509,10 @@ object {
 
 .wp-playlist-dark .wp-playlist-item {
 	border-bottom: 1px dotted #555;
-	-webkit-transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
-	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+	-webkit-transition: background-color 0.2s ease-in-out,
+		border-color 0.2s ease-in-out, color 0.3s ease-in-out;
+	transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out,
+		color 0.3s ease-in-out;
 }
 
 .wp-playlist-dark .wp-playlist-item:hover,

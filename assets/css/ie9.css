@@ -1,5 +1,5 @@
 /*
-Theme Name: Twenty Seventeen
+Theme Name: Guo Yunhe 2
 Description: IE9 specific styles.
 */
 
@@ -17,7 +17,6 @@ Description: IE9 specific styles.
 }
 
 @media screen and (min-width: 30em) {
-
 	.has-header-image.twentyseventeen-front-page .custom-header,
 	.has-header-video.twentyseventeen-front-page .custom-header,
 	.has-header-image.home.blog .custom-header,
@@ -30,7 +29,6 @@ Description: IE9 specific styles.
 }
 
 @media screen and (min-width: 48em) {
-
 	.has-header-image.twentyseventeen-front-page .custom-header,
 	.has-header-video.twentyseventeen-front-page .custom-header,
 	.has-header-image.home.blog .custom-header,

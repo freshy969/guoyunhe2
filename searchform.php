@@ -1,6 +1,6 @@
 <?php
 /**
- * Template for displaying search forms in Twenty Seventeen
+ * Template for displaying search forms in Guo Yunhe 2
  *
  * @package WordPress
  * @subpackage Guo_Yunhe_2

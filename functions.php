@@ -1,6 +1,6 @@
 <?php
 /**
- * Twenty Seventeen functions and definitions
+ * Guo Yunhe 2 functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -10,7 +10,7 @@
  */
 
 /**
- * Twenty Seventeen only works in WordPress 4.7 or later.
+ * Guo Yunhe 2 only works in WordPress 4.7 or later.
  */
 if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 	require get_template_directory() . '/inc/back-compat.php';
@@ -28,7 +28,7 @@ function guoyunhe2_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed at WordPress.org. See: https://translate.wordpress.org/projects/wp-themes/guoyunhe2
-	 * If you're building a theme based on Twenty Seventeen, use a find and replace
+	 * If you're building a theme based on Guo Yunhe 2, use a find and replace
 	 * to change 'guoyunhe2' to the name of your theme in all the template files.
 	 */
 	load_theme_textdomain( 'guoyunhe2' );
@@ -50,13 +50,6 @@ function guoyunhe2_setup() {
 	 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 	 */
 	add_theme_support( 'post-thumbnails' );
-
-	add_image_size( 'guoyunhe2-featured-image', 2000, 1200, true );
-
-	add_image_size( 'guoyunhe2-thumbnail-avatar', 100, 100, true );
-
-	// Set the default content width.
-	$GLOBALS['content_width'] = 525;
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
@@ -204,9 +197,9 @@ function guoyunhe2_setup() {
 	);
 
 	/**
-	 * Filters Twenty Seventeen array of starter content.
+	 * Filters Guo Yunhe 2 array of starter content.
 	 *
-	 * @since Twenty Seventeen 1.1
+	 * @since Guo Yunhe 2 1.1
 	 *
 	 * @param array $starter_content Array of starter content.
 	 */
@@ -217,69 +210,18 @@ function guoyunhe2_setup() {
 add_action( 'after_setup_theme', 'guoyunhe2_setup' );
 
 /**
- * Set the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- */
-function guoyunhe2_content_width() {
-
-	$content_width = $GLOBALS['content_width'];
-
-	// Get layout.
-	$page_layout = get_theme_mod( 'page_layout' );
-
-	// Check if layout is one column.
-	if ( 'one-column' === $page_layout ) {
-		if ( guoyunhe2_is_frontpage() ) {
-			$content_width = 644;
-		} elseif ( is_page() ) {
-			$content_width = 740;
-		}
-	}
-
-	// Check if is single post and there is no sidebar.
-	if ( is_single() && ! is_active_sidebar( 'sidebar-1' ) ) {
-		$content_width = 740;
-	}
-
-	/**
-	 * Filter Twenty Seventeen content width of the theme.
-	 *
-	 * @since Twenty Seventeen 1.0
-	 *
-	 * @param int $content_width Content width in pixels.
-	 */
-	$GLOBALS['content_width'] = apply_filters( 'guoyunhe2_content_width', $content_width );
-}
-add_action( 'template_redirect', 'guoyunhe2_content_width', 0 );
-
-/**
  * Register custom fonts.
  */
 function guoyunhe2_fonts_url() {
 	$fonts_url = '';
+	$font_families = ['Playfair Display:700', 'Raleway'];
 
-	/*
-	 * Translators: If there are characters in your language that are not
-	 * supported by Libre Franklin, translate this to 'off'. Do not translate
-	 * into your own language.
-	 */
-	$libre_franklin = _x( 'on', 'Libre Franklin font: on or off', 'guoyunhe2' );
+	$query_args = array(
+		'family' => urlencode( implode( '|', $font_families ) ),
+		'subset' => urlencode( 'latin,latin-ext' ),
+	);
 
-	if ( 'off' !== $libre_franklin ) {
-		$font_families = array();
-
-		$font_families = ['Playfair Display:700', 'Raleway'];
-
-		$query_args = array(
-			'family' => urlencode( implode( '|', $font_families ) ),
-			'subset' => urlencode( 'latin,latin-ext' ),
-		);
-
-		$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
-	}
+	$fonts_url = add_query_arg( $query_args, 'https://fonts.googleapis.com/css' );
 
 	return esc_url_raw( $fonts_url );
 }
@@ -287,7 +229,7 @@ function guoyunhe2_fonts_url() {
 /**
  * Add preconnect for Google Fonts.
  *
- * @since Twenty Seventeen 1.0
+ * @since Guo Yunhe 2 1.0
  *
  * @param array  $urls           URLs to print for resource hints.
  * @param string $relation_type  The relation type the URLs are printed.
@@ -347,7 +289,7 @@ add_action( 'widgets_init', 'guoyunhe2_widgets_init' );
  * Replaces "[...]" (appended to automatically generated excerpts) with ... and
  * a 'Continue reading' link.
  *
- * @since Twenty Seventeen 1.0
+ * @since Guo Yunhe 2 1.0
  *
  * @param string $link Link to single post/page.
  * @return string 'Continue reading' link prepended with an ellipsis.
@@ -371,7 +313,7 @@ add_filter( 'excerpt_more', 'guoyunhe2_excerpt_more' );
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  *
- * @since Twenty Seventeen 1.0
+ * @since Guo Yunhe 2 1.0
  */
 function guoyunhe2_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
@@ -463,7 +405,7 @@ add_action( 'wp_enqueue_scripts', 'guoyunhe2_scripts' );
  * Add custom image sizes attribute to enhance responsive image functionality
  * for content images.
  *
- * @since Twenty Seventeen 1.0
+ * @since Guo Yunhe 2 1.0
  *
  * @param string $sizes A source size value for use in a 'sizes' attribute.
  * @param array  $size  Image size. Accepts an array of width and height
@@ -490,7 +432,7 @@ add_filter( 'wp_calculate_image_sizes', 'guoyunhe2_content_image_sizes_attr', 10
 /**
  * Filter the `sizes` value in the header image markup.
  *
- * @since Twenty Seventeen 1.0
+ * @since Guo Yunhe 2 1.0
  *
  * @param string $html   The HTML image tag markup being filtered.
  * @param object $header The custom header object returned by 'get_custom_header()'.
@@ -509,7 +451,7 @@ add_filter( 'get_header_image_tag', 'guoyunhe2_header_image_tag', 10, 3 );
  * Add custom image sizes attribute to enhance responsive image functionality
  * for post thumbnails.
  *
- * @since Twenty Seventeen 1.0
+ * @since Guo Yunhe 2 1.0
  *
  * @param array $attr       Attributes for the image markup.
  * @param int   $attachment Image attachment ID.
@@ -530,7 +472,7 @@ add_filter( 'wp_get_attachment_image_attributes', 'guoyunhe2_post_thumbnail_size
 /**
  * Use front-page.php when Front page displays is set to a static page.
  *
- * @since Twenty Seventeen 1.0
+ * @since Guo Yunhe 2 1.0
  *
  * @param string $template front-page.php.
  *
@@ -545,7 +487,7 @@ add_filter( 'frontpage_template',  'guoyunhe2_front_page_template' );
  * Modifies tag cloud widget arguments to display all tags in the same font size
  * and use list format for better accessibility.
  *
- * @since Twenty Seventeen 1.4
+ * @since Guo Yunhe 2 1.4
  *
  * @param array $args Arguments for tag cloud widget.
  * @return array The filtered arguments for tag cloud widget.

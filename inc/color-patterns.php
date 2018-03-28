@@ -1,6 +1,6 @@
 <?php
 /**
- * Twenty Seventeen: Color Patterns
+ * Guo Yunhe 2: Color Patterns
  *
  * @package WordPress
  * @subpackage Guo_Yunhe_2
@@ -14,9 +14,9 @@ function guoyunhe2_custom_colors_css() {
 	$hue = absint( get_theme_mod( 'colorscheme_hue', 250 ) );
 
 	/**
-	 * Filter Twenty Seventeen default saturation level.
+	 * Filter Guo Yunhe 2 default saturation level.
 	 *
-	 * @since Twenty Seventeen 1.0
+	 * @since Guo Yunhe 2 1.0
 	 *
 	 * @param int $saturation Color saturation level.
 	 */
@@ -25,7 +25,7 @@ function guoyunhe2_custom_colors_css() {
 	$saturation = $saturation . '%';
 	$css = '
 /**
- * Twenty Seventeen: Color Patterns
+ * Guo Yunhe 2: Color Patterns
  *
  * Colors are ordered from dark to light.
  */
@@ -561,9 +561,9 @@ body.colors-custom,
 }';
 
 	/**
-	 * Filters Twenty Seventeen custom colors CSS.
+	 * Filters Guo Yunhe 2 custom colors CSS.
 	 *
-	 * @since Twenty Seventeen 1.0
+	 * @since Guo Yunhe 2 1.0
 	 *
 	 * @param string $css        Base theme colors CSS.
 	 * @param int    $hue        The user's selected color hue.

@@ -17,9 +17,9 @@
 function guoyunhe2_custom_header_setup() {
 
 	/**
-	 * Filter Twenty Seventeen custom-header support arguments.
+	 * Filter Guo Yunhe 2 custom-header support arguments.
 	 *
-	 * @since Twenty Seventeen 1.0
+	 * @since Guo Yunhe 2 1.0
 	 *
 	 * @param array $args {
 	 *     An array of custom-header support arguments.

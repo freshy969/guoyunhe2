@@ -31,9 +31,9 @@ get_header(); ?>
 		if ( 0 !== guoyunhe2_panel_count() || is_customize_preview() ) : // If we have pages to show.
 
 			/**
-			 * Filter number of front page sections in Twenty Seventeen.
+			 * Filter number of front page sections in Guo Yunhe 2.
 			 *
-			 * @since Twenty Seventeen 1.0
+			 * @since Guo Yunhe 2 1.0
 			 *
 			 * @param int $num_sections Number of front page sections.
 			 */
