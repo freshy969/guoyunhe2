@@ -210,7 +210,7 @@ Link
 */
 
 a {
-	color: #000;
+	color: inherit;
 	text-decoration-color: #0ff;
 }
 
@@ -338,25 +338,27 @@ Custom Header
 	position: relative;
 }
 
+.wp-custom-header {
+	display: block;
+	position: relative;
+}
+
+.wp-custom-header img {
+	display: block;
+	position: fixed;
+	object-fit: cover;
+	object-position: center;
+	z-index: -1;
+}
+
 .wp-custom-header,
 .wp-custom-header img {
-	height: 25vw;
+	height: 200px;
 }
 
 .home .wp-custom-header,
 .home .wp-custom-header img {
 	height: calc(100vh - 60px);
-}
-
-.wp-custom-header {
-	position: relative;
-}
-
-.wp-custom-header img {
-	position: fixed;
-	object-fit: cover;
-	object-position: center;
-	z-index: -1;
 }
 
 .site-branding {
@@ -365,6 +367,28 @@ Custom Header
 	left: 0;
 	right: 0;
 	padding: 1rem;
+	text-align: center;
+}
+
+.site-branding .wrap {
+	display: flex;
+	justify-content: center;
+}
+
+.site-branding-text {
+	padding: 1em;
+}
+
+.site-branding-text.background--dark {
+	color: #fff;
+}
+
+.site-branding-text.background--light.background--complex {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.site-branding-text.background--dark.background--complex {
+	background: rgba(0, 0, 0, 0.5);
 }
 
 p.site-title {

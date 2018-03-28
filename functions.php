@@ -376,6 +376,11 @@ function guoyunhe2_scripts() {
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
+	// Check if background is light or dark
+	wp_enqueue_script( 'background-check', get_theme_file_uri( '/assets/js/background-check.js' ), array(), '1.2.2', true );
+
+	wp_enqueue_script( 'guoyunhe2-custom-header', get_theme_file_uri( '/assets/js/custom-header.js' ), array(), '1.0', true );
+
 	wp_enqueue_script( 'guoyunhe2-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
 
 	$guoyunhe2_l10n = array(
