@@ -338,6 +338,13 @@ Custom Header
 	position: relative;
 }
 
+.wp-custom-header,
+.wp-custom-header img {
+	height: 40vw;
+	min-height: 250px;
+	max-height: 400px;
+}
+
 .wp-custom-header {
 	display: block;
 	position: relative;
@@ -346,58 +353,50 @@ Custom Header
 .wp-custom-header img {
 	display: block;
 	position: fixed;
+	width: 100%;
 	object-fit: cover;
-	object-position: center;
+	object-position: top center;
 	z-index: -1;
-}
-
-.wp-custom-header,
-.wp-custom-header img {
-	height: 200px;
 }
 
 .home .wp-custom-header,
 .home .wp-custom-header img {
-	height: calc(100vh - 60px);
+	height: 100vh;
+	max-height: unset;
+	min-height: unset;
+}
+
+.admin-bar.home .wp-custom-header,
+.admin-bar.home .wp-custom-header img {
+	height: calc(100vh - 32px);
 }
 
 .site-branding {
 	position: absolute;
+	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	padding: 1rem;
 	text-align: center;
 }
 
 .site-branding .wrap {
+	position: relative;
 	display: flex;
 	justify-content: center;
+	align-items: flex-start;
+	height: 100%;
 }
 
 .site-branding-text {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
 	padding: 1em;
 }
 
-.site-branding-text.background--dark {
-	color: #fff;
-}
-
-.site-branding-text.background--light.background--complex {
-	background: rgba(255, 255, 255, 0.3);
-}
-
-.site-branding-text.background--dark.background--complex {
-	background: rgba(0, 0, 0, 0.5);
-}
-
-p.site-title {
-	font-family: "Playfair Display", "Noto Serif SC", serif;
-	font-weight: 700;
-}
-
-.site-title a {
-	text-decoration: none;
+.admin-bar .site-branding-text {
+	top: 32px;
 }
 
 /* Scrolldown button */
@@ -408,14 +407,46 @@ p.site-title {
 	position: absolute;
 	right: 0;
 	bottom: 0;
-	background: rgba(255, 255, 255, 0.2);
+	font-size: 16px;
+	animation: 1s ease-in-out blink alternate infinite;
 }
 
 .site-header .menu-scroll-down .icon {
-	font-size: 1.5rem;
 	-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
 	-ms-transform: rotate(90deg); /* IE 9 */
 	transform: rotate(90deg);
+}
+
+@keyframes blink {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+	}
+}
+
+/* Background Check */
+.background--dark {
+	color: #fff;
+}
+
+.background--light.background--complex {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+.background--dark.background--complex {
+	background: rgba(0, 0, 0, 0.5);
+}
+
+p.site-title {
+	font-family: "Playfair Display", "Noto Serif SC", serif;
+	font-weight: 700;
+}
+
+.site-title a {
+	text-decoration: none;
 }
 
 /*

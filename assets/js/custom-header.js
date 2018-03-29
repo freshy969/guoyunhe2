@@ -5,6 +5,6 @@
  */
 
 BackgroundCheck.init({
-	targets: ".site-branding-text",
+	targets: ".site-branding-text, .menu-scroll-down",
 	images: ".wp-custom-header img"
 });
