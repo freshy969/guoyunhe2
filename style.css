@@ -330,13 +330,15 @@ Icon from Twenty Seventeen
 
 /*
 --------------------------------------------------------------------------------
-Custom Header
+Site Header
 --------------------------------------------------------------------------------
 */
 
-.custom-header {
+.site-header {
 	position: relative;
 }
+
+/* Custom header */
 
 .wp-custom-header,
 .wp-custom-header img {
@@ -371,9 +373,41 @@ Custom Header
 	height: calc(100vh - 32px);
 }
 
-.site-branding {
+@media screen and (max-width: 782px) {
+	.admin-bar.home .wp-custom-header,
+	.admin-bar.home .wp-custom-header img {
+		height: calc(100vh - 46px);
+	}
+}
+
+/* Top Menu */
+
+.site-navigation {
 	position: absolute;
 	top: 0;
+	left: 0;
+	z-index: 1;
+}
+
+.site-navigation .menu {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	padding: 0 0.5em;
+	margin: 0;
+}
+
+.site-navigation .menu a {
+	display: inline-block;
+	text-decoration: none;
+	padding: 0.5em 1em;
+}
+
+/* Site Identity */
+
+.site-branding {
+	position: absolute;
+	top: 3em;
 	bottom: 0;
 	left: 0;
 	right: 0;
@@ -397,6 +431,16 @@ Custom Header
 
 .admin-bar .site-branding-text {
 	top: 32px;
+}
+
+p.site-title {
+	font-family: "Playfair Display", "Noto Serif SC", serif;
+	font-weight: 700;
+	font-size: 1.5rem;
+}
+
+.site-title a {
+	text-decoration: none;
 }
 
 /* Scrolldown button */
@@ -428,6 +472,7 @@ Custom Header
 }
 
 /* Background Check */
+
 .background--dark {
 	color: #fff;
 }
@@ -440,13 +485,8 @@ Custom Header
 	background: rgba(0, 0, 0, 0.5);
 }
 
-p.site-title {
-	font-family: "Playfair Display", "Noto Serif SC", serif;
-	font-weight: 700;
-}
-
-.site-title a {
-	text-decoration: none;
+.background--dark input {
+	border-color: #fff;
 }
 
 /*

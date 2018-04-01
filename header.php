@@ -22,19 +22,60 @@
 </head>
 
 <body <?php body_class(); ?>>
+
 <div id="page" class="site">
+
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'guoyunhe2' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
+	<header id="site-header" class="site-header" role="banner">
 
-		<?php get_template_part( 'template-parts/header/header', 'image' ); ?>
+		<?php the_custom_header_markup(); ?>
 
-		<?php if ( has_nav_menu( 'top' ) ) : ?>
-			<div class="navigation-top">
-				<div class="wrap">
-					<?php get_template_part( 'template-parts/navigation/navigation', 'top' ); ?>
-				</div><!-- .wrap -->
-			</div><!-- .navigation-top -->
+		<nav id="site-navigation" class="site-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'guoyunhe2' ); ?>">
+
+			<?php wp_nav_menu( array(
+				'theme_location' => 'top',
+				'menu_id'        => 'top-menu',
+			) ); ?>
+
+		</nav><!-- #site-navigation -->
+
+		<div class="site-branding">
+
+			<div class="wrap">
+
+				<?php the_custom_logo(); ?>
+
+				<div class="site-branding-text">
+					<?php if ( is_front_page() ) : ?>
+						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+					<?php else : ?>
+						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+					<?php endif; ?>
+
+					<?php
+					$description = get_bloginfo( 'description', 'display' );
+
+					if ( $description || is_customize_preview() ) :
+					?>
+						<p class="site-description"><?php echo $description; ?></p>
+					<?php endif; ?>
+				</div><!-- .site-branding-text -->
+
+				<?php if ( ( guoyunhe2_is_frontpage() || ( is_home() && is_front_page() ) ) && ! has_nav_menu( 'top' ) ) : ?>
+				<a href="#content" class="menu-scroll-down"><?php echo guoyunhe2_get_svg( array( 'icon' => 'arrow-right' ) ); ?><span class="screen-reader-text"><?php _e( 'Scroll down to content', 'guoyunhe2' ); ?></span></a>
+			<?php endif; ?>
+
+			</div><!-- .wrap -->
+		</div><!-- .site-branding -->
+
+		<?php if ( ( guoyunhe2_is_frontpage() || ( is_home() && is_front_page() ) ) && has_custom_header() ) : ?>
+			<a href="#content" class="menu-scroll-down">
+				<?php echo guoyunhe2_get_svg( array( 'icon' => 'arrow-right' ) ); ?>
+				<span class="screen-reader-text">
+					<?php _e( 'Scroll down to content', 'guoyunhe2' ); ?>
+				</span>
+			</a>
 		<?php endif; ?>
 
 	</header><!-- #masthead -->
@@ -47,7 +88,7 @@
 	 */
 	if ( ( is_single() || ( is_page() && ! guoyunhe2_is_frontpage() ) ) && has_post_thumbnail( get_queried_object_id() ) ) :
 		echo '<div class="single-featured-image-header">';
-		echo get_the_post_thumbnail( get_queried_object_id(), 'guoyunhe2-featured-image' );
+		echo get_the_post_thumbnail( get_queried_object_id(), 'full' );
 		echo '</div><!-- .single-featured-image-header -->';
 	endif;
 	?>
