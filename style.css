@@ -609,12 +609,23 @@ Media
 /* Image */
 
 figure.wp-caption {
-	margin-left: 0;
-	margin-right: 0;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 figcaption.wp-caption-text {
 	padding: 0.5em;
 	text-align: center;
 	color: #777;
+}
+
+/* Force center alignment */
+
+.alignnone,
+.aligncenter,
+.alignleft,
+.alignright {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
