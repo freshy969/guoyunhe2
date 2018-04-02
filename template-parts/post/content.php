@@ -9,15 +9,9 @@
  * @since 1.0
  * @version 1.2
  */
-
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php
-		if ( is_sticky() && is_home() ) :
-			echo guoyunhe2_get_svg( array( 'icon' => 'thumb-tack' ) );
-		endif;
-	?>
 	<header class="entry-header">
 		<?php
 			if ( 'post' === get_post_type() ) {

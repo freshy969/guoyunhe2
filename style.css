@@ -567,7 +567,8 @@ Featured Image
 
 .single-featured-image-header img {
 	display: block;
-	max-width: 1200px;
+	max-width: 100%;
+	width: 1200px;
 	margin: 0 auto;
 	object-fit: cover;
 	object-position: center;
@@ -583,4 +584,37 @@ Content
 	width: 600px;
 	padding: 1rem;
 	margin: 3rem auto;
+}
+
+.site-content article.hentry {
+	margin-bottom: 8rem;
+}
+
+/* Sticky post */
+
+.blog .post.sticky .entry-title::before {
+	content: "*";
+	display: inline-block;
+	width: 1em;
+	margin-left: -1em;
+	vertical-align: middle;
+}
+
+/*
+--------------------------------------------------------------------------------
+Media
+--------------------------------------------------------------------------------
+*/
+
+/* Image */
+
+figure.wp-caption {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+figcaption.wp-caption-text {
+	padding: 0.5em;
+	text-align: center;
+	color: #777;
 }
