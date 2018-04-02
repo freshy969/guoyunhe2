@@ -57,8 +57,9 @@
 				<?php endif; ?>
 
 				<div class="site-info">
+					Copyright 2011&ndash;<?php echo date("Y"); ?> Guo Yunhe.
 					Powered by <a href="https://wordpress.org/" target="_blank">WordPress</a>.
-					Use <a href="https://github.com/guoyunhe/guoyunhe2">Guo Yunhe 2</a> theme by <a href="https://guoyunhe.me/">Guo Yunhe</a>.
+					Use <a href="https://github.com/guoyunhe/guoyunhe2">Guo Yunhe 2</a> theme.
 				</div><!-- .site-info -->
 			</div><!-- .wrap -->
 		</footer><!-- #colophon -->
