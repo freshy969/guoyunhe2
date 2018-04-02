@@ -492,7 +492,41 @@ Footer
 */
 
 .site-footer {
+	padding: 3rem 0;
+}
+
+.site-footer hr {
+	border: none;
+	margin: 3rem auto;
 	text-align: center;
+	font-size: 3rem;
+}
+
+.site-footer hr::before {
+	content: "* * * * * *";
+	color: #999;
+}
+
+.footer-links {
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.footer-links .menu {
+	list-style: none;
+	padding: 0 0.5em;
+	text-align: center;
+}
+
+.footer-links .menu li {
+	display: inline-block;
+	padding: 0 0.5em;
+}
+
+.site-info {
+	text-align: center;
+	padding: 0 1rem;
+	margin-top: 1rem;
 }
 
 /*

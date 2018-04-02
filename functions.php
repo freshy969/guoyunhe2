@@ -53,8 +53,8 @@ function guoyunhe2_setup() {
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
-		'top'    => __( 'Top Menu', 'guoyunhe2' ),
-		'social' => __( 'Social Links Menu', 'guoyunhe2' ),
+		'top'    => __( 'Top navigation menu', 'guoyunhe2' ),
+		'bottom' => __( 'Footer links menu', 'guoyunhe2' ),
 	) );
 
 	/*
@@ -173,7 +173,7 @@ function guoyunhe2_setup() {
 		'nav_menus' => array(
 			// Assign a menu to the "top" location.
 			'top' => array(
-				'name' => __( 'Top Menu', 'guoyunhe2' ),
+				'name' => __( 'Top navigation menu', 'guoyunhe2' ),
 				'items' => array(
 					'link_home', // Note that the core "home" page is actually a link in case a static front page is not used.
 					'page_about',
@@ -182,9 +182,9 @@ function guoyunhe2_setup() {
 				),
 			),
 
-			// Assign a menu to the "social" location.
-			'social' => array(
-				'name' => __( 'Social Links Menu', 'guoyunhe2' ),
+			// Assign a menu to the "Footer" location.
+			'bottom' => array(
+				'name' => __( 'Footer links menu', 'guoyunhe2' ),
 				'items' => array(
 					'link_yelp',
 					'link_facebook',
