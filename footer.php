@@ -50,7 +50,7 @@
 					<nav id="footer-links" class="footer-links" role="navigation" aria-label="<?php esc_attr_e( 'Footer links menu', 'guoyunhe2' ); ?>">
 						<?php
 							wp_nav_menu( array(
-								'theme_location' => 'social'
+								'theme_location' => 'bottom'
 							) );
 						?>
 					</nav><!-- .footer-links -->
