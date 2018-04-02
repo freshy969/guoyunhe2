@@ -29,7 +29,11 @@
 
 	<header id="site-header" class="site-header" role="banner">
 
-		<?php the_custom_header_markup(); ?>
+		<?php
+			if ( is_home() || is_front_page() ) {
+				the_custom_header_markup();
+			}
+		?>
 
 		<nav id="site-navigation" class="site-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'guoyunhe2' ); ?>">
 
@@ -77,7 +81,7 @@
 			</a>
 		<?php endif; ?>
 
-	</header><!-- #masthead -->
+	</header><!-- #site-header -->
 
 	<?php
 

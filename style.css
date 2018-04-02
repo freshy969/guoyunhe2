@@ -366,11 +366,10 @@ Site Header
 
 /* Custom header */
 
+.site-header,
 .wp-custom-header,
 .wp-custom-header img {
-	height: 40vw;
-	min-height: 250px;
-	max-height: 400px;
+	height: 200px;
 }
 
 .wp-custom-header {
@@ -386,6 +385,7 @@ Site Header
 	z-index: -1;
 }
 
+.home .site-header,
 .home .wp-custom-header,
 .home .wp-custom-header img {
 	height: 100vh;
@@ -393,6 +393,7 @@ Site Header
 	min-height: unset;
 }
 
+.admin-bar.home .site-header,
 .admin-bar.home .wp-custom-header,
 .admin-bar.home .wp-custom-header img {
 	height: calc(100vh - 32px);
@@ -403,6 +404,14 @@ Site Header
 	.admin-bar.home .wp-custom-header img {
 		height: calc(100vh - 46px);
 	}
+}
+
+.blog .site-header,
+.blog .wp-custom-header,
+.blog .wp-custom-header img {
+	height: 50vh;
+	max-height: unset;
+	min-height: unset;
 }
 
 /* Top Menu */
