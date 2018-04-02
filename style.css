@@ -175,7 +175,8 @@ Body
 body {
 	background-color: #fff;
 	color: #000;
-	font-family: "Raleway", "Noto Sans SC", sans-serif;
+	font-family: "Raleway", "Noto Sans SC", "STXihei", "Microsoft YaHei",
+		sans-serif;
 }
 
 /*
@@ -190,7 +191,8 @@ h3,
 h4,
 h5,
 h6 {
-	font-family: "Playfair Display", "Noto Serif SC", serif;
+	font-family: "Playfair Display", "Noto Serif SC", "STSong", "NSimSun",
+		"SimSun", serif;
 	font-weight: 700;
 }
 
@@ -201,6 +203,30 @@ h4:first-child,
 h5:first-child,
 h6:first-child {
 	margin-top: 0;
+}
+
+h1 {
+	font-size: 4em;
+}
+
+h2 {
+	font-size: 3em;
+}
+
+h3 {
+	font-size: 2.5em;
+}
+
+h4 {
+	font-size: 2em;
+}
+
+h5 {
+	font-size: 1.5em;
+}
+
+h6 {
+	font-size: 1.2em;
 }
 
 /*
@@ -553,5 +579,8 @@ Content
 --------------------------------------------------------------------------------
 */
 
-.site-content-contain {
+.site-content {
+	width: 600px;
+	padding: 1rem;
+	margin: 3rem auto;
 }
