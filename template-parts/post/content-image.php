@@ -21,14 +21,7 @@
 	<header class="entry-header">
 		<?php
 			if ( 'post' === get_post_type() ) {
-				echo '<div class="entry-meta">';
-					if ( is_single() ) {
-						guoyunhe2_posted_on();
-					} else {
-						echo guoyunhe2_time_link();
-						guoyunhe2_edit_link();
-					};
-				echo '</div><!-- .entry-meta -->';
+				the_date('', '<p>', '</p>');
 			};
 
 			if ( is_single() ) {
