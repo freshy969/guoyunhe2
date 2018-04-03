@@ -27,13 +27,13 @@
 
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'guoyunhe2' ); ?></a>
 
-	<header id="site-header" class="site-header" role="banner">
-
-		<?php
-			if ( is_home() || is_front_page() ) {
-				the_custom_header_markup();
-			}
-		?>
+	<header id="site-header" class="site-header" role="banner" style="<?php
+		if ( is_home() || is_front_page() ) {
+			echo 'background-image: url(';
+			header_image();
+			echo ');';
+		}
+	?>)">
 
 		<nav id="site-navigation" class="site-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'guoyunhe2' ); ?>">
 

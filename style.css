@@ -362,53 +362,30 @@ Site Header
 
 .site-header {
 	position: relative;
-}
-
-/* Custom header */
-
-.site-header,
-.wp-custom-header,
-.wp-custom-header img {
+	background-size: cover;
+	background-position: top center;
+	background-attachment: fixed;
 	height: 200px;
 }
 
-.wp-custom-header {
-	display: block;
-	position: relative;
-}
-
-.wp-custom-header img {
-	display: block;
-	width: 100%;
-	object-fit: cover;
-	object-position: top center;
-	z-index: -1;
-}
-
-.home .site-header,
-.home .wp-custom-header,
-.home .wp-custom-header img {
+/* Home page */
+.home .site-header {
 	height: 100vh;
-	max-height: unset;
-	min-height: unset;
 }
 
-.admin-bar.home .site-header,
-.admin-bar.home .wp-custom-header,
-.admin-bar.home .wp-custom-header img {
+/* Home page with admin bar */
+.admin-bar.home .site-header {
 	height: calc(100vh - 32px);
 }
 
+/* Mobile */
 @media screen and (max-width: 782px) {
-	.admin-bar.home .wp-custom-header,
-	.admin-bar.home .wp-custom-header img {
+	.admin-bar.home .site-header {
 		height: calc(100vh - 46px);
 	}
 }
 
-.blog .site-header,
-.blog .wp-custom-header,
-.blog .wp-custom-header img {
+.blog .site-header {
 	height: 50vh;
 	max-height: unset;
 	min-height: unset;
@@ -590,7 +567,7 @@ Content
 */
 
 .site-content {
-	width: 600px;
+	max-width: 600px;
 	padding: 1rem;
 	margin: 3rem auto;
 }
@@ -650,4 +627,10 @@ Comment
 	width: 6em;
 	vertical-align: top;
 	line-height: 2em;
+}
+
+.comment-form textarea {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	max-width: 100%;
 }
