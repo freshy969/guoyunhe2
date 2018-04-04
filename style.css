@@ -441,6 +441,10 @@ Site Header
 	top: 32px;
 }
 
+h1.site-title {
+	font-size: 2.5em;
+}
+
 p.site-title {
 	font-family: "Playfair Display", "Noto Serif SC", serif;
 	font-weight: 700;
@@ -562,7 +566,7 @@ Featured Image
 
 /*
 --------------------------------------------------------------------------------
-Content
+Blog Content
 --------------------------------------------------------------------------------
 */
 
@@ -584,6 +588,50 @@ Content
 	width: 1em;
 	margin-left: -1em;
 	vertical-align: middle;
+}
+
+/*
+--------------------------------------------------------------------------------
+Front-page Content
+--------------------------------------------------------------------------------
+*/
+
+.home:not(.blog) .site-content {
+	max-width: unset;
+	padding: 0;
+}
+
+.home:not(.blog) .site-content .panel-image {
+	height: 75vw;
+	background-size: cover;
+	background-position: center;
+}
+
+.home:not(.blog) .site-content .panel-content {
+	max-width: 600px;
+	padding: 1rem;
+	margin: auto;
+}
+
+@media screen and (min-width: 600px) {
+	.home:not(.blog) .site-content .panel-image {
+		height: 50vw;
+	}
+}
+
+@media screen and (min-width: 960px) {
+	.home:not(.blog) .site-content .panel {
+		display: flex;
+	}
+
+	.home:not(.blog) .site-content .panel-image {
+		width: 50%;
+		height: 25vw;
+	}
+
+	.home:not(.blog) .site-content .panel:nth-child(2n) {
+		flex-direction: row-reverse;
+	}
 }
 
 /*

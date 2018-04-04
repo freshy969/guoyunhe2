@@ -12,18 +12,13 @@ global $guoyunhe2counter;
 
 ?>
 
-<article id="panel<?php echo $guoyunhe2counter; ?>" <?php post_class( 'guoyunhe2-panel ' ); ?> >
+<article id="panel<?php echo $guoyunhe2counter; ?>" <?php post_class( 'panel ' ); ?> >
 
 	<?php if ( has_post_thumbnail() ) :
-		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'guoyunhe2-featured-image' );
-
-		// Calculate aspect ratio: h / w * 100%.
-		$ratio = $thumbnail[2] / $thumbnail[1] * 100;
+		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
 		?>
 
-		<div class="panel-image" style="background-image: url(<?php echo esc_url( $thumbnail[0] ); ?>);">
-			<div class="panel-image-prop" style="padding-top: <?php echo esc_attr( $ratio ); ?>%"></div>
-		</div><!-- .panel-image -->
+		<div class="panel-image" style="background-image: url(<?php echo esc_url( $thumbnail[0] ); ?>);"></div>
 
 	<?php endif; ?>
 
