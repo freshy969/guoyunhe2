@@ -682,3 +682,9 @@ Comment
 	box-sizing: border-box;
 	max-width: 100%;
 }
+
+.nav-links {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 3rem;
+}
