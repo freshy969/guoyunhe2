@@ -41,11 +41,11 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_pagination( array(
-				'prev_text' => '<span class="screen-reader-text">&lt;' . __( 'Previous page', 'guoyunhe2' ) . '</span>',
-				'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'guoyunhe2' ) . '&gt;</span>',
-				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'guoyunhe2' ) . ' </span>',
-			) );
+			the_posts_pagination( [
+				'mid_size' => 5,
+				'prev_text' => '&lt;',
+				'next_text' => '&gt;',
+			] );
 
 		else :
 
