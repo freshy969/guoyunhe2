@@ -86,7 +86,7 @@
 
 	<?php
 	if ( is_single() ) {
-		guoyunhe2_entry_footer();
+		get_template_part( 'template-parts/post/footer' );
 	}
 	?>
 

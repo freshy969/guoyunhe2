@@ -357,21 +357,6 @@ function guoyunhe2_scripts() {
 	// Theme stylesheet.
 	wp_enqueue_style( 'guoyunhe2-style', get_stylesheet_uri() );
 
-	// Load the dark colorscheme.
-	if ( 'dark' === get_theme_mod( 'colorscheme', 'light' ) || is_customize_preview() ) {
-		wp_enqueue_style( 'guoyunhe2-colors-dark', get_theme_file_uri( '/assets/css/colors-dark.css' ), array( 'guoyunhe2-style' ), '1.0' );
-	}
-
-	// Load the Internet Explorer 9 specific stylesheet, to fix display issues in the Customizer.
-	if ( is_customize_preview() ) {
-		wp_enqueue_style( 'guoyunhe2-ie9', get_theme_file_uri( '/assets/css/ie9.css' ), array( 'guoyunhe2-style' ), '1.0' );
-		wp_style_add_data( 'guoyunhe2-ie9', 'conditional', 'IE 9' );
-	}
-
-	// Load the Internet Explorer 8 specific stylesheet.
-	wp_enqueue_style( 'guoyunhe2-ie8', get_theme_file_uri( '/assets/css/ie8.css' ), array( 'guoyunhe2-style' ), '1.0' );
-	wp_style_add_data( 'guoyunhe2-ie8', 'conditional', 'lt IE 9' );
-
 	// Load the html5 shiv.
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
@@ -383,22 +368,9 @@ function guoyunhe2_scripts() {
 
 	wp_enqueue_script( 'guoyunhe2-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.js' ), array(), '1.0', true );
 
-	$guoyunhe2_l10n = array(
-		'quote'          => guoyunhe2_get_svg( array( 'icon' => 'quote-right' ) ),
-	);
-
-	if ( has_nav_menu( 'top' ) ) {
-		wp_enqueue_script( 'guoyunhe2-navigation', get_theme_file_uri( '/assets/js/navigation.js' ), array( 'jquery' ), '1.0', true );
-		$guoyunhe2_l10n['expand']         = __( 'Expand child menu', 'guoyunhe2' );
-		$guoyunhe2_l10n['collapse']       = __( 'Collapse child menu', 'guoyunhe2' );
-		$guoyunhe2_l10n['icon']           = guoyunhe2_get_svg( array( 'icon' => 'angle-down', 'fallback' => true ) );
-	}
-
 	wp_enqueue_script( 'guoyunhe2-global', get_theme_file_uri( '/assets/js/global.js' ), array( 'jquery' ), '1.0', true );
 
 	wp_enqueue_script( 'jquery-scrollto', get_theme_file_uri( '/assets/js/jquery.scrollTo.js' ), array( 'jquery' ), '2.1.2', true );
-
-	wp_localize_script( 'guoyunhe2-skip-link-focus-fix', 'guoyunhe2ScreenReaderText', $guoyunhe2_l10n );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -508,26 +480,63 @@ function guoyunhe2_widget_tag_cloud_args( $args ) {
 add_filter( 'widget_tag_cloud_args', 'guoyunhe2_widget_tag_cloud_args' );
 
 /**
- * Implement the Custom Header feature.
- */
-require get_parent_theme_file_path( '/inc/custom-header.php' );
-
-/**
- * Custom template tags for this theme.
- */
-require get_parent_theme_file_path( '/inc/template-tags.php' );
-
-/**
- * Additional features to allow styling of the templates.
- */
-require get_parent_theme_file_path( '/inc/template-functions.php' );
-
-/**
  * Customizer additions.
  */
 require get_parent_theme_file_path( '/inc/customizer.php' );
 
 /**
- * SVG icons functions and filters.
+ * Count our number of active panels.
+ *
+ * Primarily used to see if we have any panels active, duh.
  */
-require get_parent_theme_file_path( '/inc/icon-functions.php' );
+function guoyunhe2_panel_count() {
+
+	$panel_count = 0;
+
+	/**
+	 * Filter number of front page sections in Guo Yunhe 2.
+	 *
+	 * @since Guo Yunhe 2 1.0
+	 *
+	 * @param int $num_sections Number of front page sections.
+	 */
+	$num_sections = apply_filters( 'guoyunhe2_front_page_sections', 4 );
+
+	// Create a setting and control for each of the sections available in the theme.
+	for ( $i = 1; $i < ( 1 + $num_sections ); $i++ ) {
+		if ( get_theme_mod( 'panel_' . $i ) ) {
+			$panel_count++;
+		}
+	}
+
+	return $panel_count;
+}
+
+/**
+ * Display a front page section.
+ *
+ * @param WP_Customize_Partial $partial Partial associated with a selective refresh request.
+ * @param integer              $id Front page section to display.
+ */
+function guoyunhe2_front_page_section( $partial = null, $id = 0 ) {
+	if ( is_a( $partial, 'WP_Customize_Partial' ) ) {
+		// Find out the id and set it up during a selective refresh.
+		global $guoyunhe2counter;
+		$id = str_replace( 'panel_', '', $partial->id );
+		$guoyunhe2counter = $id;
+	}
+
+	global $post; // Modify the global post object before setting up post data.
+	if ( get_theme_mod( 'panel_' . $id ) ) {
+		$post = get_post( get_theme_mod( 'panel_' . $id ) );
+		setup_postdata( $post );
+		set_query_var( 'panel', $id );
+
+		get_template_part( 'template-parts/page/content', 'front-page-panels' );
+
+		wp_reset_postdata();
+	} elseif ( is_customize_preview() ) {
+		// The output placeholder anchor.
+		echo '<article class="panel-placeholder panel guoyunhe2-panel guoyunhe2-panel' . $id . '" id="panel' . $id . '"><span class="guoyunhe2-panel-title">' . sprintf( __( 'Front Page Section %1$s Placeholder', 'guoyunhe2' ), $id ) . '</span></article>';
+	}
+}

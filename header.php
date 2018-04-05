@@ -30,10 +30,14 @@
 	<header id="site-header" class="site-header" role="banner" style="<?php
 		if ( is_home() || is_front_page() ) {
 			echo 'background-image: url(';
-			header_image();
+			if (header_image()) {
+				echo header_image();
+			} else {
+				echo get_theme_file_uri( '/assets/images/header.jpg' );
+			}
 			echo ');';
 		}
-	?>)">
+	?>">
 
 		<nav id="site-navigation" class="site-navigation" role="navigation" aria-label="<?php esc_attr_e( 'Top Menu', 'guoyunhe2' ); ?>">
 
@@ -65,16 +69,12 @@
 					<?php endif; ?>
 				</div><!-- .site-branding-text -->
 
-				<?php if ( ( guoyunhe2_is_frontpage() || ( is_home() && is_front_page() ) ) && ! has_nav_menu( 'top' ) ) : ?>
-				<a href="#content" class="menu-scroll-down"><?php echo guoyunhe2_get_svg( array( 'icon' => 'arrow-right' ) ); ?><span class="screen-reader-text"><?php _e( 'Scroll down to content', 'guoyunhe2' ); ?></span></a>
-			<?php endif; ?>
-
 			</div><!-- .wrap -->
 		</div><!-- .site-branding -->
 
-		<?php if ( ( guoyunhe2_is_frontpage() || ( is_home() && is_front_page() ) ) && has_custom_header() ) : ?>
+		<?php if ( ( is_home() && is_front_page() ) && has_custom_header() ) : ?>
 			<a href="#content" class="menu-scroll-down">
-				<?php echo guoyunhe2_get_svg( array( 'icon' => 'arrow-right' ) ); ?>
+				<span class="icon">&gt;</span>
 				<span class="screen-reader-text">
 					<?php _e( 'Scroll down to content', 'guoyunhe2' ); ?>
 				</span>
@@ -89,7 +89,7 @@
 	 * If a regular post or page, and not the front page, show the featured image.
 	 * Using get_queried_object_id() here since the $post global may not be set before a call to the_post().
 	 */
-	if ( ( is_single() || ( is_page() && ! guoyunhe2_is_frontpage() ) ) && has_post_thumbnail( get_queried_object_id() ) ) :
+	if ( ( is_single() || ( is_page() && ! is_front_page() ) ) && has_post_thumbnail( get_queried_object_id() ) ) :
 		echo '<div class="single-featured-image-header">';
 		echo get_the_post_thumbnail( get_queried_object_id(), 'full' );
 		echo '</div><!-- .single-featured-image-header -->';

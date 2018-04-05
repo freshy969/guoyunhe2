@@ -47,8 +47,8 @@ get_header(); ?>
 				endwhile;
 
 				the_posts_pagination( array(
-					'prev_text' => guoyunhe2_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'guoyunhe2' ) . '</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'guoyunhe2' ) . '</span>' . guoyunhe2_get_svg( array( 'icon' => 'arrow-right' ) ),
+					'prev_text' => '&lt;<span class="screen-reader-text">' . __( 'Previous page', 'guoyunhe2' ) . '</span>',
+					'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'guoyunhe2' ) . '</span>&gt;',
 					'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'guoyunhe2' ) . ' </span>',
 				) );
 

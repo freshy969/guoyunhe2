@@ -57,14 +57,14 @@ if ( post_password_required() ) {
 					'avatar_size' => 100,
 					'style'       => 'ol',
 					'short_ping'  => true,
-					'reply_text'  => guoyunhe2_get_svg( array( 'icon' => 'mail-reply' ) ) . __( 'Reply', 'guoyunhe2' ),
+					'reply_text'  => __( 'Reply', 'guoyunhe2' ),
 				) );
 			?>
 		</ol>
 
 		<?php the_comments_pagination( array(
-			'prev_text' => guoyunhe2_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous', 'guoyunhe2' ) . '</span>',
-			'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'guoyunhe2' ) . '</span>' . guoyunhe2_get_svg( array( 'icon' => 'arrow-right' ) ),
+			'prev_text' => '&lt;<span class="screen-reader-text">' . __( 'Previous', 'guoyunhe2' ) . '</span>',
+			'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'guoyunhe2' ) . '</span>&gt;',
 		) );
 
 	endif; // Check for have_comments().
