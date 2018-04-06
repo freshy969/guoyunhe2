@@ -66,11 +66,7 @@
 
 		if ( is_single() || empty( $audio ) ) {
 
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'guoyunhe2' ),
-				get_the_title()
-			) );
+			the_content();
 
 			wp_link_pages( array(
 				'before'      => '<div class="page-links">' . __( 'Pages:', 'guoyunhe2' ),

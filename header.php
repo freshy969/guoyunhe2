@@ -25,8 +25,6 @@
 
 <div id="page" class="site">
 
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'guoyunhe2' ); ?></a>
-
 	<header id="site-header" class="site-header" role="banner" style="<?php
 		if ( is_home() || is_front_page() ) {
 			echo 'background-image: url(';
@@ -73,15 +71,6 @@
 
 			</div><!-- .wrap -->
 		</div><!-- .site-branding -->
-
-		<?php if ( ( is_home() && is_front_page() ) && has_custom_header() ) : ?>
-			<a href="#content" class="menu-scroll-down">
-				<span class="icon">&gt;</span>
-				<span class="screen-reader-text">
-					<?php _e( 'Scroll down to content', 'guoyunhe2' ); ?>
-				</span>
-			</a>
-		<?php endif; ?>
 
 	</header><!-- #site-header -->
 

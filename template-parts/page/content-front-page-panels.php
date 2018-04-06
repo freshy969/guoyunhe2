@@ -29,13 +29,7 @@ global $guoyunhe2counter;
 			</header><!-- .entry-header -->
 
 			<div class="entry-content">
-				<?php
-					/* translators: %s: Name of current post */
-					the_content( sprintf(
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'guoyunhe2' ),
-						get_the_title()
-					) );
-				?>
+				<?php the_content(); ?>
 			</div><!-- .entry-content -->
 
 			<?php

@@ -63,8 +63,8 @@ if ( post_password_required() ) {
 		</ol>
 
 		<?php the_comments_pagination( array(
-			'prev_text' => '&lt;<span class="screen-reader-text">' . __( 'Previous', 'guoyunhe2' ) . '</span>',
-			'next_text' => '<span class="screen-reader-text">' . __( 'Next', 'guoyunhe2' ) . '</span>&gt;',
+			'prev_text' => '&lt;',
+			'next_text' => '&gt;',
 		) );
 
 	endif; // Check for have_comments().
