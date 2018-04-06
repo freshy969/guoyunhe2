@@ -8,7 +8,7 @@ Version: 1.0
 License: GNU General Public License v3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Text Domain: guoyunhe2
-Tags: one-column, two-columns, right-sidebar, flexible-header, accessibility-ready, custom-colors, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
+Tags: one-column, flexible-header, custom-header, custom-menu, custom-logo, editor-style, featured-images, footer-widgets, post-formats, rtl-language-support, sticky-post, theme-options, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -26,43 +26,53 @@ html {
 	line-height: 1.15;
 	-webkit-text-size-adjust: 100%;
 }
+
 body {
 	margin: 0;
 }
+
 h1 {
 	font-size: 2em;
 	margin: 0.67em 0;
 }
+
 hr {
 	box-sizing: content-box;
 	height: 0;
 	overflow: visible;
 }
+
 pre {
 	font-family: monospace, monospace;
 	font-size: 1em;
 }
+
 a {
 	background-color: transparent;
 }
+
 abbr[title] {
 	border-bottom: 0;
 	text-decoration: underline;
 	text-decoration: underline dotted;
 }
+
 b,
 strong {
 	font-weight: bolder;
 }
+
 code,
 kbd,
 samp {
 	font-family: monospace, monospace;
 	font-size: 1em;
 }
+
 small {
 	font-size: 80%;
 }
+
 sub,
 sup {
 	font-size: 75%;
@@ -70,15 +80,19 @@ sup {
 	position: relative;
 	vertical-align: baseline;
 }
+
 sub {
 	bottom: -0.25em;
 }
+
 sup {
 	top: -0.5em;
 }
+
 img {
 	border-style: none;
 }
+
 button,
 input,
 optgroup,
@@ -89,20 +103,24 @@ textarea {
 	line-height: 1.15;
 	margin: 0;
 }
+
 button,
 input {
 	overflow: visible;
 }
+
 button,
 select {
 	text-transform: none;
 }
+
 button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
 	-webkit-appearance: button;
 }
+
 button::-moz-focus-inner,
 [type="button"]::-moz-focus-inner,
 [type="reset"]::-moz-focus-inner,
@@ -110,15 +128,18 @@ button::-moz-focus-inner,
 	border-style: none;
 	padding: 0;
 }
+
 button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
 	outline: 1px dotted ButtonText;
 }
+
 fieldset {
 	padding: 0.35em 0.75em 0.625em;
 }
+
 legend {
 	box-sizing: border-box;
 	color: inherit;
@@ -127,41 +148,52 @@ legend {
 	padding: 0;
 	white-space: normal;
 }
+
 progress {
 	vertical-align: baseline;
 }
+
 textarea {
 	overflow: auto;
 }
+
 [type="checkbox"],
 [type="radio"] {
 	box-sizing: border-box;
 	padding: 0;
 }
+
 [type="number"]::-webkit-inner-spin-button,
 [type="number"]::-webkit-outer-spin-button {
 	height: auto;
 }
+
 [type="search"] {
 	-webkit-appearance: textfield;
 	outline-offset: -2px;
 }
+
 [type="search"]::-webkit-search-decoration {
 	-webkit-appearance: none;
 }
+
 ::-webkit-file-upload-button {
 	-webkit-appearance: button;
 	font: inherit;
 }
+
 details {
 	display: block;
 }
+
 summary {
 	display: list-item;
 }
+
 template {
 	display: none;
 }
+
 [hidden] {
 	display: none;
 }
@@ -229,7 +261,7 @@ h6 {
 	font-size: 1.2em;
 }
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 599px) {
 	h1 {
 		font-size: 2em;
 	}
@@ -324,45 +356,6 @@ input[type="reset"]:hover {
 
 /*
 --------------------------------------------------------------------------------
-Accessibility from Twenty Seventeen
-Author: WordPress team
-License: GPLv2 or later
---------------------------------------------------------------------------------
-*/
-
-.screen-reader-text {
-	clip: rect(1px, 1px, 1px, 1px);
-	height: 1px;
-	overflow: hidden;
-	position: absolute !important;
-	width: 1px;
-	word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
-}
-
-.screen-reader-text:focus {
-	background-color: #f1f1f1;
-	-webkit-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-	clip: auto !important;
-	color: #21759b;
-	display: block;
-	font-size: 14px;
-	font-size: 0.875rem;
-	font-weight: 700;
-	height: auto;
-	left: 5px;
-	line-height: normal;
-	padding: 15px 23px 14px;
-	text-decoration: none;
-	top: 5px;
-	width: auto;
-	z-index: 100000; /* Above WP toolbar. */
-}
-
-/*
---------------------------------------------------------------------------------
 Site Header
 --------------------------------------------------------------------------------
 */
@@ -375,24 +368,28 @@ Site Header
 	height: 200px;
 }
 
-/* Home page */
+/* Front page */
 .home .site-header {
 	height: 100vh;
 }
 
-/* Home page with admin bar */
+/* Front page with admin bar */
 .admin-bar.home .site-header {
 	height: calc(100vh - 32px);
 }
 
-/* Mobile */
+/*
+ * Front page with admin bar on mobile device
+ * 783px is the break point of WordPress
+ */
 @media screen and (max-width: 782px) {
 	.admin-bar.home .site-header {
 		height: calc(100vh - 46px);
 	}
 }
 
-.blog .site-header {
+/* Blog page (not front page) */
+.blog:not(.home) .site-header {
 	height: 50vh;
 	max-height: unset;
 	min-height: unset;
@@ -471,10 +468,6 @@ Site Header
 	padding: 1em;
 }
 
-.admin-bar .site-branding-text {
-	top: 32px;
-}
-
 h1.site-title {
 	font-size: 2.5em;
 }
@@ -487,34 +480,6 @@ p.site-title {
 
 .site-title a {
 	text-decoration: none;
-}
-
-/* Scrolldown button */
-
-.site-header .menu-scroll-down {
-	display: block;
-	padding: 1em;
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	font-size: 16px;
-	animation: 1s ease-in-out blink alternate infinite;
-}
-
-.site-header .menu-scroll-down .icon {
-	-webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
-	-ms-transform: rotate(90deg); /* IE 9 */
-	transform: rotate(90deg);
-}
-
-@keyframes blink {
-	from {
-		opacity: 1;
-	}
-
-	to {
-		opacity: 0;
-	}
 }
 
 /* Background Check */
@@ -745,7 +710,7 @@ Comment
 
 /*
 --------------------------------------------------------------------------------
-Nav Links ( Previous / Next )
+Nav Links ( Previous / next and paginations )
 --------------------------------------------------------------------------------
 */
 
