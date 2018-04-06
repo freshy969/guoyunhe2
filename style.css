@@ -229,6 +229,29 @@ h6 {
 	font-size: 1.2em;
 }
 
+@media screen and (max-width: 765px) {
+	h1 {
+		font-size: 2em;
+	}
+
+	h2 {
+		font-size: 1.75em;
+	}
+
+	h3 {
+		font-size: 1.5em;
+	}
+
+	h4 {
+		font-size: 1.25em;
+	}
+
+	h5,
+	h6 {
+		font-size: 1em;
+	}
+}
+
 /*
 --------------------------------------------------------------------------------
 Link
@@ -396,6 +419,33 @@ Site Header
 	display: inline-block;
 	text-decoration: none;
 	padding: 0.5em 1em;
+}
+
+/* Search */
+
+.site-header .search-form {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 0.5rem 1rem;
+}
+
+.site-header .search-form input[type="search"] {
+	background: transparent;
+}
+
+.site-header .search-form input[type="search"]::-moz-placeholder {
+	color: inherit;
+	opacity: 1;
+}
+
+.site-header .search-form input[type="search"]::-webkit-placeholder {
+	color: inherit;
+	opacity: 1;
+}
+
+.site-header .search-form button {
+	display: none;
 }
 
 /* Site Identity */
@@ -662,6 +712,7 @@ Comment
 }
 
 .comment {
+	margin-bottom: 1rem;
 }
 
 .comment-body {

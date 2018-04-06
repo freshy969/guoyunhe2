@@ -47,6 +47,8 @@
 
 		</nav><!-- #site-navigation -->
 
+		<?php get_search_form(); ?>
+
 		<div class="site-branding">
 
 			<div class="wrap">
