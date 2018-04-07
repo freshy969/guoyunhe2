@@ -616,6 +616,16 @@ Front-page Content
 	margin: auto;
 }
 
+.home:not(.blog) .site-content .panel-content .recent-posts .post {
+	margin-bottom: 1rem;
+}
+
+.home:not(.blog) .site-content .panel-content .recent-posts .post .entry-title {
+	margin-top: 0.5rem;
+	margin-bottom: 0;
+	font-size: 1.5rem;
+}
+
 @media screen and (min-width: 600px) {
 	.home:not(.blog) .site-content .panel-image {
 		height: 50vw;

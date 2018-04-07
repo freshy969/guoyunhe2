@@ -18,10 +18,6 @@
 
 	<header class="entry-header">
 		<?php
-		if ( 'post' === get_post_type() ) {
-			the_date('', '<p>', '</p>');
-		};
-
 		if ( is_front_page() && ! is_home() ) {
 
 			// The excerpt is being displayed within a front page section, so it's a lower hierarchy than h2.
