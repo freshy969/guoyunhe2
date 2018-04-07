@@ -27,62 +27,11 @@ function guoyunhe2_customize_register( $wp_customize ) {
 	) );
 
 	/**
-	 * Custom colors.
-	 */
-	$wp_customize->add_setting( 'colorscheme', array(
-		'default'           => 'light',
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'guoyunhe2_sanitize_colorscheme',
-	) );
-
-	$wp_customize->add_setting( 'colorscheme_hue', array(
-		'default'           => 250,
-		'transport'         => 'postMessage',
-		'sanitize_callback' => 'absint', // The hue is stored as a positive integer.
-	) );
-
-	$wp_customize->add_control( 'colorscheme', array(
-		'type'    => 'radio',
-		'label'    => __( 'Color Scheme', 'guoyunhe2' ),
-		'choices'  => array(
-			'light'  => __( 'Light', 'guoyunhe2' ),
-			'dark'   => __( 'Dark', 'guoyunhe2' ),
-			'custom' => __( 'Custom', 'guoyunhe2' ),
-		),
-		'section'  => 'colors',
-		'priority' => 5,
-	) );
-
-	$wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'colorscheme_hue', array(
-		'mode' => 'hue',
-		'section'  => 'colors',
-		'priority' => 6,
-	) ) );
-
-	/**
 	 * Theme options.
 	 */
 	$wp_customize->add_section( 'theme_options', array(
 		'title'    => __( 'Theme Options', 'guoyunhe2' ),
 		'priority' => 130, // Before Additional CSS.
-	) );
-
-	$wp_customize->add_setting( 'page_layout', array(
-		'default'           => 'two-column',
-		'sanitize_callback' => 'guoyunhe2_sanitize_page_layout',
-		'transport'         => 'postMessage',
-	) );
-
-	$wp_customize->add_control( 'page_layout', array(
-		'label'       => __( 'Page Layout', 'guoyunhe2' ),
-		'section'     => 'theme_options',
-		'type'        => 'radio',
-		'description' => __( 'When the two-column layout is assigned, the page title is in one column and content is in the other.', 'guoyunhe2' ),
-		'choices'     => array(
-			'one-column' => __( 'One Column', 'guoyunhe2' ),
-			'two-column' => __( 'Two Column', 'guoyunhe2' ),
-		),
-		'active_callback' => 'guoyunhe2_is_view_with_layout_option',
 	) );
 
 	/**
@@ -122,39 +71,6 @@ function guoyunhe2_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'guoyunhe2_customize_register' );
 
 /**
- * Sanitize the page layout options.
- *
- * @param string $input Page layout.
- */
-function guoyunhe2_sanitize_page_layout( $input ) {
-	$valid = array(
-		'one-column' => __( 'One Column', 'guoyunhe2' ),
-		'two-column' => __( 'Two Column', 'guoyunhe2' ),
-	);
-
-	if ( array_key_exists( $input, $valid ) ) {
-		return $input;
-	}
-
-	return '';
-}
-
-/**
- * Sanitize the colorscheme.
- *
- * @param string $input Color scheme.
- */
-function guoyunhe2_sanitize_colorscheme( $input ) {
-	$valid = array( 'light', 'dark', 'custom' );
-
-	if ( in_array( $input, $valid, true ) ) {
-		return $input;
-	}
-
-	return 'light';
-}
-
-/**
  * Render the site title for the selective refresh partial.
  *
  * @since Guo Yunhe 2 1.0
@@ -183,14 +99,6 @@ function guoyunhe2_customize_partial_blogdescription() {
  */
 function guoyunhe2_is_static_front_page() {
 	return ( is_front_page() && ! is_home() );
-}
-
-/**
- * Return whether we're on a view that supports a one or two column layout.
- */
-function guoyunhe2_is_view_with_layout_option() {
-	// This option is available on all pages. It's also available on archives when there isn't a sidebar.
-	return ( is_page() || ( is_archive() && ! is_active_sidebar( 'sidebar-1' ) ) );
 }
 
 /**
