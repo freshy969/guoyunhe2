@@ -218,7 +218,7 @@ add_action( 'after_setup_theme', 'guoyunhe2_setup' );
  */
 function guoyunhe2_fonts_url() {
 	$fonts_url = '';
-	$font_families = ['Playfair Display:700', 'Raleway'];
+	$font_families = ['Playfair Display:700', 'Raleway:400,700'];
 
 	$query_args = array(
 		'family' => urlencode( implode( '|', $font_families ) ),
