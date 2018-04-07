@@ -102,20 +102,13 @@ function guoyunhe2_setup() {
 	// Define and register starter content to showcase the theme on new sites.
 	$starter_content = array(
 		'widgets' => array(
-			// Place three core-defined widgets in the sidebar area.
-			'sidebar-1' => array(
-				'text_business_info',
-				'search',
-				'text_about',
-			),
-
 			// Add the core-defined business info widget to the footer 1 area.
-			'sidebar-2' => array(
+			'sidebar-1' => array(
 				'text_business_info',
 			),
 
 			// Put two core-defined widgets in the footer 2 area.
-			'sidebar-3' => array(
+			'sidebar-2' => array(
 				'text_about',
 				'search',
 			),
@@ -253,19 +246,10 @@ add_filter( 'wp_resource_hints', 'guoyunhe2_resource_hints', 10, 2 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function guoyunhe2_widgets_init() {
-	register_sidebar( array(
-		'name'          => __( 'Blog Sidebar', 'guoyunhe2' ),
-		'id'            => 'sidebar-1',
-		'description'   => __( 'Add widgets here to appear in your sidebar on blog posts and archive pages.', 'guoyunhe2' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
 
 	register_sidebar( array(
 		'name'          => __( 'Footer 1', 'guoyunhe2' ),
-		'id'            => 'sidebar-2',
+		'id'            => 'sidebar-1',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'guoyunhe2' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -275,7 +259,7 @@ function guoyunhe2_widgets_init() {
 
 	register_sidebar( array(
 		'name'          => __( 'Footer 2', 'guoyunhe2' ),
-		'id'            => 'sidebar-3',
+		'id'            => 'sidebar-2',
 		'description'   => __( 'Add widgets here to appear in your footer.', 'guoyunhe2' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
@@ -337,34 +321,6 @@ function guoyunhe2_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'guoyunhe2_scripts' );
-
-/**
- * Add custom image sizes attribute to enhance responsive image functionality
- * for content images.
- *
- * @since Guo Yunhe 2 1.0
- *
- * @param string $sizes A source size value for use in a 'sizes' attribute.
- * @param array  $size  Image size. Accepts an array of width and height
- *                      values in pixels (in that order).
- * @return string A source size value for use in a content image 'sizes' attribute.
- */
-function guoyunhe2_content_image_sizes_attr( $sizes, $size ) {
-	$width = $size[0];
-
-	if ( 740 <= $width ) {
-		$sizes = '(max-width: 706px) 89vw, (max-width: 767px) 82vw, 740px';
-	}
-
-	if ( is_active_sidebar( 'sidebar-1' ) || is_archive() || is_search() || is_home() || is_page() ) {
-		if ( ! ( is_page() && 'one-column' === get_theme_mod( 'page_options' ) ) && 767 <= $width ) {
-			 $sizes = '(max-width: 767px) 89vw, (max-width: 1000px) 54vw, (max-width: 1071px) 543px, 580px';
-		}
-	}
-
-	return $sizes;
-}
-add_filter( 'wp_calculate_image_sizes', 'guoyunhe2_content_image_sizes_attr', 10, 2 );
 
 /**
  * Filter the `sizes` value in the header image markup.
