@@ -15,7 +15,7 @@ global $guoyunhe2counter;
 <article id="panel<?php echo $guoyunhe2counter; ?>" <?php post_class( 'panel ' ); ?> >
 
 	<?php if ( has_post_thumbnail() ) :
-		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
+		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 		?>
 
 		<div class="panel-image" style="background-image: url(<?php echo esc_url( $thumbnail[0] ); ?>);"></div>
