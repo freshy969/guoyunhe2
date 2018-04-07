@@ -204,6 +204,10 @@ Body
 --------------------------------------------------------------------------------
 */
 
+html {
+	line-height: 1.5;
+}
+
 body {
 	background-color: #fff;
 	color: #000;
@@ -718,4 +722,44 @@ Nav Links ( Previous / next and paginations )
 	display: flex;
 	justify-content: space-between;
 	margin-top: 3rem;
+}
+
+/*
+--------------------------------------------------------------------------------
+Widgets
+--------------------------------------------------------------------------------
+*/
+
+/* 4 columns */
+.widget-area {
+	display: flex;
+	max-width: calc(1200px + 4rem);
+	margin: auto;
+	flex-wrap: wrap;
+}
+
+/* 2 columns or 1 columns */
+@media screen and (max-width: 1200px) {
+	.widget-area {
+		max-width: calc(600px + 2rem);
+	}
+}
+
+.widget-column {
+	flex: 1 1 calc(300px - 2rem);
+	padding: 0 1rem;
+}
+
+.widget ul {
+	list-style: none;
+	padding: 0;
+}
+
+.widget ul li {
+	margin-bottom: 0.5em;
+}
+
+.widget-title {
+	font-size: 1.2rem;
+	border-bottom: 1px solid #000;
 }

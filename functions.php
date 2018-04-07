@@ -112,6 +112,17 @@ function guoyunhe2_setup() {
 				'text_about',
 				'search',
 			),
+
+			// Add the core-defined business info widget to the footer 3 area.
+			'sidebar-3' => array(
+				'text_business_info',
+			),
+
+			// Put two core-defined widgets in the footer 4 area.
+			'sidebar-4' => array(
+				'text_about',
+				'search',
+			),
 		),
 
 		// Specify the core-defined pages to create and add custom thumbnails to some of them.
@@ -266,6 +277,26 @@ function guoyunhe2_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer 3', 'guoyunhe2' ),
+		'id'            => 'sidebar-3',
+		'description'   => __( 'Add widgets here to appear in your footer.', 'guoyunhe2' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer 4', 'guoyunhe2' ),
+		'id'            => 'sidebar-4',
+		'description'   => __( 'Add widgets here to appear in your footer.', 'guoyunhe2' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'guoyunhe2_widgets_init' );
 
@@ -375,25 +406,6 @@ function guoyunhe2_front_page_template( $template ) {
 	return is_home() ? '' : $template;
 }
 add_filter( 'frontpage_template',  'guoyunhe2_front_page_template' );
-
-/**
- * Modifies tag cloud widget arguments to display all tags in the same font size
- * and use list format for better accessibility.
- *
- * @since Guo Yunhe 2 1.4
- *
- * @param array $args Arguments for tag cloud widget.
- * @return array The filtered arguments for tag cloud widget.
- */
-function guoyunhe2_widget_tag_cloud_args( $args ) {
-	$args['largest']  = 1;
-	$args['smallest'] = 1;
-	$args['unit']     = 'em';
-	$args['format']   = 'list';
-
-	return $args;
-}
-add_filter( 'widget_tag_cloud_args', 'guoyunhe2_widget_tag_cloud_args' );
 
 /**
  * Customizer additions.
