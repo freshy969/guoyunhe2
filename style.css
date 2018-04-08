@@ -652,6 +652,10 @@ Front-page Content
 		height: 25vw;
 	}
 
+	.home:not(.blog) .site-content .panel-content {
+		flex: 1 1 600px;
+	}
+
 	.home:not(.blog) .site-content .panel:nth-child(2n) {
 		flex-direction: row-reverse;
 	}
