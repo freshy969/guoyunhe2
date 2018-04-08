@@ -620,6 +620,13 @@ Front-page Content
 	background-position: center;
 }
 
+.home:not(.blog) .site-content .panel-image img {
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
 .home:not(.blog) .site-content .panel-content {
 	max-width: 600px;
 	padding: 1rem;

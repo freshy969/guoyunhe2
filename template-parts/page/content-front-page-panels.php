@@ -18,7 +18,9 @@ global $guoyunhe2counter;
 		$thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
 		?>
 
-		<div class="panel-image" style="background-image: url(<?php echo esc_url( $thumbnail[0] ); ?>);"></div>
+		<div class="panel-image">
+			<img src="<?php echo esc_url( $thumbnail[0] ); ?>" width="1200" height="600" alt="Panel image" />
+		</div>
 
 	<?php endif; ?>
 
