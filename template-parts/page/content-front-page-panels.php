@@ -26,7 +26,7 @@ global $guoyunhe2counter;
 		<div class="wrap">
 			<header class="entry-header">
 				<?php
-				 	if ( get_the_ID() != (int) get_option( 'page_for_posts' )  ) {
+				 	if ( get_the_ID() !== (int) get_option( 'page_for_posts' )  ) {
 						the_title( '<h2 class="entry-title">', '</h2>' );
 					 }
 				?>
