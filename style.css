@@ -588,6 +588,11 @@ Mobile Navbar and Menu
 	z-index: 10;
 }
 
+.mobile-navbar .site-title {
+	opacity: 0;
+	transition: 0.3s;
+}
+
 .mobile-navbar .toggle {
 	display: block;
 	border: none;
