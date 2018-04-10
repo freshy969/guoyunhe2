@@ -490,8 +490,11 @@ Site Header
 	position: absolute;
 	top: 0;
 	right: 0;
-	padding: 0.5rem 1rem;
 	text-align: right;
+}
+
+.site-search .search-form {
+	padding: 0.5rem 1rem;
 }
 
 .site-search .search-form input[type="search"] {
@@ -569,7 +572,7 @@ p.site-title {
 
 /*
 --------------------------------------------------------------------------------
-Mobile Navbar
+Mobile Navbar and Menu
 --------------------------------------------------------------------------------
 */
 
@@ -612,39 +615,44 @@ Mobile Navbar
 		display: flex;
 	}
 
-	.site-navigation .menu {
-		display: block;
-		position: relative;
-		width: 250px;
-		left: -250px;
+	.site-navigation,
+	.site-search {
+		position: fixed;
+		top: 3rem;
+		width: 100%;
 		background: #fff;
 		transition: 0.3s;
-		padding: 0;
+		z-index: 10;
 	}
 
-	.site-navigation .menu {
-		display: block;
-		position: relative;
-		width: 250px;
-		left: -250px;
-		background: #fff;
-		transition: 0.3s;
-		padding: 0;
+	.site-navigation {
+		left: -100vh;
+		bottom: 0;
 	}
 
-	.site-navigation .menu.active {
+	.site-navigation.active {
 		left: 0;
 	}
 
+	.site-navigation .menu {
+		display: block;
+		padding: 0;
+	}
+
 	.site-search {
-		overflow-x: hidden;
+		right: -100vh;
+	}
+
+	.site-search.active {
+		right: 0;
 	}
 
 	.site-search .search-form {
-		position: relative;
-		width: 250px;
-		top: 0;
-		right: -250px;
+		text-align: center;
+	}
+
+	.site-search .search-form button {
+		display: inline-block;
 	}
 }
 
