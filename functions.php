@@ -338,7 +338,10 @@ function guoyunhe2_scripts() {
 
 	// Check if background is light or dark
 	wp_enqueue_script( 'background-check', get_theme_file_uri( '/assets/js/background-check.js' ), array(), '1.2.2', true );
+	// Solve 300ms delay of clicks on touch devices
+	wp_enqueue_script( 'fastclick', get_theme_file_uri( '/assets/js/fastclick.js' ), array(), '1.0.6', true );
 
+	wp_enqueue_script( 'guoyunhe2-global', get_theme_file_uri( '/assets/js/global.js' ), array(), '1.0', true );
 	wp_enqueue_script( 'guoyunhe2-header', get_theme_file_uri( '/assets/js/header.js' ), array(), '1.0', true );
 	wp_enqueue_script( 'guoyunhe2-mobile', get_theme_file_uri( '/assets/js/mobile.js' ), array(), '1.0', true );
 
