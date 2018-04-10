@@ -25,6 +25,20 @@
 
 <div id="page" class="site">
 
+	<nav id="mobile-navbar" class="mobile-navbar">
+
+		<button class="toggle menu-toggle">
+			<span class="icon icon-menu"><i></i><i></i><i></i></span>
+		</button>
+
+		<p id="mobile-navbar-site-title" class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+
+		<button class="toggle search-toggle">
+			<span class="icon icon-search"><i></i><i></i></span>
+		</button>
+
+	</nav>
+
 	<header id="site-header" class="site-header" role="banner" style="<?php
 		if ( is_home() || is_front_page() ) {
 			echo 'background-image: url(';
@@ -45,7 +59,10 @@
 
 		</nav><!-- #site-navigation -->
 
-		<?php get_search_form(); ?>
+		<div id="site-search" class="site-search">
+			<?php get_search_form(); ?>
+		</div>
+
 
 		<div class="site-branding">
 

@@ -22,4 +22,12 @@
 			$featuredImage.height(Math.max($featuredImage.width() * 0.3333, 300));
 		});
 	}
+
+	jQuery(".menu-toggle").click(() => {
+		jQuery(".site-navigation").toggleClass("active");
+	});
+
+	jQuery(".search-toggle").click(() => {
+		jQuery(".site-search").toggleClass("active");
+	});
 })();
