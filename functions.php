@@ -336,8 +336,6 @@ function guoyunhe2_scripts() {
 	wp_enqueue_script( 'html5', get_theme_file_uri( '/assets/js/html5.js' ), array(), '3.7.3' );
 	wp_script_add_data( 'html5', 'conditional', 'lt IE 9' );
 
-	// Check if background is light or dark
-	wp_enqueue_script( 'background-check', get_theme_file_uri( '/assets/js/background-check.js' ), array(), '1.2.2', true );
 	// Solve 300ms delay of clicks on touch devices
 	wp_enqueue_script( 'fastclick', get_theme_file_uri( '/assets/js/fastclick.js' ), array(), '1.0.6', true );
 

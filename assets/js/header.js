@@ -1,19 +1,10 @@
 /**
  * Header Styles and Interaction
  *
- * Change branding text color based on background image darkness.
+ * 1. Change the ratio of header image
  */
 
 (function() {
-	var $customHeaderImage = jQuery(".wp-custom-header img");
-
-	if ($customHeaderImage.length) {
-		BackgroundCheck.init({
-			targets: ".site-navigation, .site-branding-text, .menu-scroll-down",
-			images: "#site-header"
-		});
-	}
-
 	var $featuredImage = jQuery(".single-featured-image-header img");
 
 	if ($featuredImage.length) {
