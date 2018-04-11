@@ -14,10 +14,8 @@
 	// Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
 	var adminbar = document.getElementById("wpadminbar");
 	var header = document.getElementById("site-header");
-	var mobileNavbar = document.getElementById("mobile-navbar");
-	var mobileNavbarSiteTitle = document.getElementById(
-		"mobile-navbar-site-title"
-	);
+	var navbar = document.getElementById("navbar");
+	var navbarSiteTitle = document.getElementById("navbar-site-title");
 	var siteNavigation = document.getElementById("site-navigation");
 	var siteSearch = document.getElementById("site-search");
 	var lastKnownScrollPosition = 0;
@@ -26,10 +24,10 @@
 	var ticking = false;
 
 	function updateNavbar() {
-		scrollPosition = window.scrollY;
-		headerHeight = header.clientHeight;
-		adminbarHeight = adminbar ? adminbar.clientHeight : 0;
-		mobileNavbarTop = mobileNavbar.getBoundingClientRect().y;
+		var scrollPosition = window.scrollY;
+		var headerHeight = header.clientHeight;
+		var adminbarHeight = adminbar ? adminbar.clientHeight : 0;
+		var navbarTop = navbar.getBoundingClientRect().y;
 
 		var opacity = Math.pow(scrollPosition / (headerHeight + adminbarHeight), 3);
 		if (opacity > 1) {
@@ -37,15 +35,15 @@
 		} else if (opacity < 0) {
 			opacity = 0;
 		}
-		mobileNavbar.style.background = "rgba(255,255,255," + opacity + ")";
+		navbar.style.background = "rgba(255,255,255," + opacity + ")";
 
 		if (scrollPosition > headerHeight) {
-			mobileNavbarSiteTitle.style.opacity = 1;
+			navbarSiteTitle.style.opacity = 1;
 		} else {
-			mobileNavbarSiteTitle.style.opacity = 0;
+			navbarSiteTitle.style.opacity = 0;
 		}
 
-		var top = "calc(3rem + " + mobileNavbarTop + "px)";
+		var top = "calc(3rem + " + navbarTop + "px)";
 		siteNavigation.style.top = top;
 		siteSearch.style.top = top;
 	}
